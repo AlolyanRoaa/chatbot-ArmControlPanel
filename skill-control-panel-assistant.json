@@ -1,0 +1,448 @@
+{
+  "intents": [
+    {
+      "intent": "contact",
+      "examples": [
+        {
+          "text": "Could be better"
+        },
+        {
+          "text": "how can I contact you?"
+        },
+        {
+          "text": "I have a suggestion"
+        },
+        {
+          "text": "It is possible to develop this"
+        },
+        {
+          "text": "I want to complaint"
+        },
+        {
+          "text": "this doesn't work!!!"
+        },
+        {
+          "text": "this isn't work!!"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "des",
+      "examples": [
+        {
+          "text": "?"
+        },
+        {
+          "text": "what?"
+        },
+        {
+          "text": "what is that?"
+        },
+        {
+          "text": "what is this?"
+        },
+        {
+          "text": "what's that?"
+        },
+        {
+          "text": "what's this?"
+        },
+        {
+          "text": "what this page is ?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "howToUse",
+      "examples": [
+        {
+          "text": "can i use this?"
+        },
+        {
+          "text": "how can i use it?"
+        },
+        {
+          "text": "how to use it?"
+        },
+        {
+          "text": "how to use this?"
+        },
+        {
+          "text": "how to use this panel?"
+        },
+        {
+          "text": "what is this used for?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "inbtw",
+      "examples": [
+        {
+          "text": "maybe"
+        },
+        {
+          "text": "no not"
+        },
+        {
+          "text": "not really"
+        },
+        {
+          "text": "oh yeah"
+        },
+        {
+          "text": "oh yes"
+        },
+        {
+          "text": "yeah"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "lilydo",
+      "examples": [
+        {
+          "text": "What can you help me with?"
+        },
+        {
+          "text": "what is you?"
+        },
+        {
+          "text": "what you are doing?"
+        },
+        {
+          "text": "who are you?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "thanking",
+      "examples": [
+        {
+          "text": "oh thanks"
+        },
+        {
+          "text": "ok thanks"
+        },
+        {
+          "text": "thanks"
+        },
+        {
+          "text": "thanks a lot"
+        },
+        {
+          "text": "thank u"
+        },
+        {
+          "text": "thank you"
+        },
+        {
+          "text": "thank you so much"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "then",
+      "examples": [
+        {
+          "text": "so?"
+        },
+        {
+          "text": "so what?"
+        },
+        {
+          "text": "then?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "welcoming",
+      "examples": [
+        {
+          "text": "good afternoon"
+        },
+        {
+          "text": "good evening"
+        },
+        {
+          "text": "good morning"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hi"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_9_1625423621832",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "what is this",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "This is a control interface for the competition robot. you can control the arm of the robot with these sliders, each of them represents a joint. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#des",
+      "dialog_node": "node_1_1625415846097",
+      "previous_sibling": "node_9_1625418556413"
+    },
+    {
+      "type": "standard",
+      "title": "then",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "the robot on the competition site will move remotely!!!"
+              },
+              {
+                "text": "Isn't this awesome?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#then",
+      "dialog_node": "node_2_1625417164476",
+      "previous_sibling": "node_4_1625416817862"
+    },
+    {
+      "type": "standard",
+      "title": "welcoming",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi, how can I help you?"
+              },
+              {
+                "text": "hello, may I help you with something?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#welcoming",
+      "dialog_node": "node_3_1625406697585",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "how to use",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Each slide here represents a joint in the robot arm. so, you can control the arm using this interface."
+              },
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#howToUse",
+      "dialog_node": "node_3_1625407284368",
+      "previous_sibling": "node_1_1625415846097"
+    },
+    {
+      "type": "standard",
+      "title": "contacts ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "we are welcome to any suggestion or complaint. please contact us through: info@s-m.com.sa"
+              },
+              {
+                "text": "Thank you for your consideration and hope to see you soon."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#contact",
+      "dialog_node": "node_4_1625416817862",
+      "previous_sibling": "node_3_1625407284368"
+    },
+    {
+      "type": "standard",
+      "title": "inbtw",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I recommend you try this experience"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#inbtw",
+      "dialog_node": "node_7_1625418876990",
+      "previous_sibling": "node_2_1625417164476"
+    },
+    {
+      "type": "standard",
+      "title": "who",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I can help you to a better understanding of this interface"
+              },
+              {
+                "text": "Do you have any difficulty?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#lilydo",
+      "dialog_node": "node_9_1625418556413",
+      "previous_sibling": "node_3_1625406697585"
+    },
+    {
+      "type": "standard",
+      "title": "thanking",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You are welcome! I hope that I was helpful"
+              },
+              {
+                "text": "You are welcome! I hope to see you soon"
+              },
+              {
+                "text": "You are welcome! enjoy your experience"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#thanking",
+      "dialog_node": "node_9_1625423621832",
+      "previous_sibling": "node_7_1625418876990"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. This is Lily, How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": false
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "control panel assistant",
+  "language": "en",
+  "description": ""
+}
